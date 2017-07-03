@@ -1,0 +1,25 @@
+@mixin bgPosition($iconW, $iconH, $iconX, $iconY){
+    $spriteW: {{width}};
+    $spriteH: {{height}};
+    @if($spriteW == $iconW) {
+        background-position: (0 ($iconY / ($spriteH - $iconH)) * 100%);
+    }
+    @else if($spriteH == $iconH) {
+        background-position: (($iconX / ($spriteW - $iconW)) * 100% 0);
+    }
+    @else {
+        background-position: (($iconX / ($spriteW - $iconW)) * 100% ($iconY / ($spriteH - $iconH)) * 100%);
+    }
+}
+
+{{each items item index}}
+.icon-{{item.name}}{
+    {{if type == 2 && algorithm == 'top-down'}}
+    background-size: 100% auto;
+    {{else if type == 2 && algorithm == 'left-right'}}
+    background-size: auto 100%;
+    {{/if}}
+    background-image: url({{pngname}}.png);
+    @include bgPosition({{item.value.width}},{{item.value.height}},{{item.value.x}},{{item.value.y}});
+}
+{{/each}}

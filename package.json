@@ -1,0 +1,22 @@
+{
+  "name": "create-spritesmith",
+  "version": "1.0.0",
+  "description": "spritesmith 加强版 分别生成 pc和mobile 端使用的 sprite css scss sass less stylus json ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spritesmith",
+    "pc",
+    "mobile"
+  ],
+  "author": "nuanfeng",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.11.0",
+    "chalk": "^1.1.3",
+    "mkdirp": "^0.5.1",
+    "spritesmith": "^3.1.1"
+  }
+}

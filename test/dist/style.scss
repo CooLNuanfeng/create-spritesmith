@@ -1,21 +1,47 @@
+@mixin bgPosition($iconW, $iconH, $iconX, $iconY){
+    $spriteW: 144;
+    $spriteH: 273;
+    @if($spriteW == $iconW) {
+        background-position: (0 ($iconY / ($spriteH - $iconH)) * 100%);
+    }
+    @else if($spriteH == $iconH) {
+        background-position: (($iconX / ($spriteW - $iconW)) * 100% 0);
+    }
+    @else {
+        background-position: (($iconX / ($spriteW - $iconW)) * 100% ($iconY / ($spriteH - $iconH)) * 100%);
+    }
+}
+
 
 .icon-notic{
+    width: 0.28rem;
+    height: 0.28rem;
+    background-size: 100% auto;
     background-image: url(sprite.png);
-    background-position: 0px 0px;
+    @include bgPosition(28,28,0,0);
 }
 
 .icon-answeer{
+    width: 0.3rem;
+    height: 0.3rem;
+    background-size: 100% auto;
     background-image: url(sprite.png);
-    background-position: 0px -33px;
+    @include bgPosition(30,30,0,33);
 }
 
 .icon-ico-safari{
+    width: 0.5rem;
+    height: 0.5rem;
+    background-size: 100% auto;
     background-image: url(sprite.png);
-    background-position: 0px -68px;
+    @include bgPosition(50,50,0,68);
 }
 
 .icon-logo{
+    width: 1.44rem;
+    height: 1.5rem;
+    background-size: 100% auto;
     background-image: url(sprite.png);
-    background-position: 0px -123px;
+    @include bgPosition(144,150,0,123);
 }
 
